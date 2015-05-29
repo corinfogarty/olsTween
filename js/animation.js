@@ -2,22 +2,14 @@
 
 window.onload = init;
 
+var box = document.getElementById("box")
  
 function init() {
     var box = document.getElementById("box");
-    $(box, 0, {xOrigin:50, yOrigin:50, left:100,top:100, alpha:1, onComplete:tween});
-    // playFrame(tween)
+    $(box, 0, {xOrigin:50, yOrigin:50, left:100,top:100, scaleY:1, scaleX:1, rotate:0, alpha:1});
+     playFrame(tween)
 }
 function tween(){
-        console.log("end of tween");
+       $(box, 1, {delay:1, left:200,top:100, scaleY:1, scaleX:1, rotate:90, alpha:1});
 
-     $(box, 5, {delay:0,xOrigin:50, yOrigin:50, left:706,top:296, ease:"easeOutQuart", onStart:start, onComplete:end});
-   
-}
-
-function start(){
-    console.log("start of tween");
-}
-function end(){
-    console.log("end of tween");
-}
+   }
