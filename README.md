@@ -42,98 +42,98 @@ see **easings.net** for list -  or can be either named or a cubic bezier equatio
 
 
 * ** alpha:**  
-number - *default 1*;
+number - *default 1*  
 ```$(element, 1, {alpha:"0.5")```
 
 
 * **blur:**  
-number does not requre px;
+number *does not requre px*  
 ```$(element, 1, {blur:20)```  
 
 
 
 * **top:**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {top:100)```  
 
 
 * **left:**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {left:100)```  
 
 
 * **bottom:**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {bottom:100)```  
 
 
 * **right:**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {right:100)```  
 
 
 * **width**  
-number does not requre px  
+number *does not requre px*  
 ```$(element, 1, {width:100)```  
 
 
 * **height**  
-number does not requre px  
+number *does not requre px*  
 ```$(element, 1, {height:100)```  
 
 
 * **marginTop**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {marginTop:100)```  
 
 
 * **marginRight**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {marginRight:100)```  
 
 
 * **marginBottom**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {marginBottom:100)```  
 
 
 * **marginLeft**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {marginLeft:100)```  
 
 
 * **paddingTop**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {paddingTop:100)```  
 
 
 * **paddingRight**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {paddingRight:100)```  
 
 
 * **paddingBottom**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {paddingBottom:100)```  
 
 
 * **paddingLeft**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {paddingLeft:100)```  
 
 
 * **backgroundColor**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {backgroundColor:"#ffcc00")```  
 ```$(element, 1, {backgroundColor:"rgba(225,225,225,.5)")```  
 
 * **onStart**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {onStart:function)```  
 
 
 * **onComplete**  
-number does not requre px - *default 0*  
+number *does not requre px* - *default 0*  
 ```$(element, 1, {onComplete:function)```  
 
 
