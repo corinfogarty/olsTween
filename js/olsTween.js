@@ -24,13 +24,13 @@
 
 var ready = [];
 //PLAY THE NEXT FRAME WITH DELAY AFTER ALL TWEENS 
-function playFrame(frame, del) {
+function playFrame(frame, delay) {
     var go = setInterval(function() {
         if (ready.length === 0) {
             clearInterval(go);
             setTimeout(function() {
                 eval(frame());
-            }, del);
+            }, delay);
 
         }
     });
@@ -114,7 +114,7 @@ function $(name, duration, args) {
         s.paddingBottom = a.paddingBottom + 'px';
         s.paddingLeft = a.paddingLeft + 'px';
 
-        s.backgroundColor = '#' + a.backgroundColor;
+        s.backgroundColor = a.backgroundColor;
 
         ready.pop();
         doNext();
@@ -149,18 +149,12 @@ function addClass(element, className, delay) {
 
 
     // SWAP ALL CLASS NAMES FOR A NEW SET
-function swapClass(element, className, delay) {
+function replaceClass(element, className, delay) {
         var d = delay || 0;
         setTimeout(function() {
             element.className = className;
         }, d);
     }
-
-box.className = "one"
-
-swapClass(box, "hello fish water", 500)
-
-box.className = "hello fish water"
 
     // REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
 function removeClass(element, removeClassName, delay) {
@@ -169,8 +163,3 @@ function removeClass(element, removeClassName, delay) {
         element.className = element.className.replace(removeClassName + " ", "");
     }, d);
 }
-box.className = "one two three"
-
-removeClass(box, "one", 500)
-
-box.className = "two three"
