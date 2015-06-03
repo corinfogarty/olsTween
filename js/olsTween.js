@@ -86,10 +86,10 @@ function $(name, duration, args) {
         var xScale = a.scaleX || scaleAll || 1;
         var yScale = a.scaleY || scaleAll || 1;
         var rotation = a.rotate || 0;
-        var top = a.top;
-        var left = a.left;
+        var top = a.top || 0;
+        var left = a.left || 0;
 
-        s.position = 'absolute';
+        s.position = a. position || 'absolute';
 
 
         s[transformProperty] = ' scale(' + xScale + ' , ' + yScale + ') rotate( ' + rotation + 'deg ) translate(' + top +'px'+ ', ' + left + 'px' + ')';
@@ -98,10 +98,8 @@ function $(name, duration, args) {
         s.opacity = a.alpha;
 
         s.filter = 'blur(' + a.blur + 'px)';
-        s.left = a.left + 'px';
         s.bottom = a.bottom + 'px';
         s.right = a.right + 'px';
-        //s.top = a.top + 'px';
 
         s.width = a.width + "px";
         s.height = a.height + "px";
@@ -135,11 +133,12 @@ function $(name, duration, args) {
 
 }
 
-function doProp(argument, units) {
-        if (argument) {
-          return s.argument = a.argument + units;
-        }
-    }
+box.className = "one"
+
+addClass(box, "hello fish water", 500)
+
+box.className = "one hello fish water"
+
     // ADD A CLASS NAME TO THE EXISTING SET
 function addClass(element, className, delay) {
         var d = delay || 0;
@@ -147,6 +146,8 @@ function addClass(element, className, delay) {
             element.className = element.className + " " + className;
         }, d);
     }
+
+
     // SWAP ALL CLASS NAMES FOR A NEW SET
 function swapClass(element, className, delay) {
         var d = delay || 0;
@@ -154,6 +155,13 @@ function swapClass(element, className, delay) {
             element.className = className;
         }, d);
     }
+
+box.className = "one"
+
+swapClass(box, "hello fish water", 500)
+
+box.className = "hello fish water"
+
     // REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
 function removeClass(element, removeClassName, delay) {
     var d = delay || 0;
@@ -161,3 +169,8 @@ function removeClass(element, removeClassName, delay) {
         element.className = element.className.replace(removeClassName + " ", "");
     }, d);
 }
+box.className = "one two three"
+
+removeClass(box, "one", 500)
+
+box.className = "two three"
