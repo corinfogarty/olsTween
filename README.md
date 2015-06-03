@@ -141,17 +141,17 @@ number *does not requre px* - *default 0*
 -----------     
 ##Changing class
 
-###To add a class name to an element use in addition to its current class names    
+To add a class name to an element use in addition to its current class names    
 ```addClass(element, className, delay)```
 -----------  
-###To replace all class names to an element removing all its current class names    
+To replace all class names to an element removing all its current class names    
 ```replaceClass(element, className, delay)```
 -----------  
-###To remove a class name from the class names of element - note if duplicate class names are present it will only remove the first    
+To remove a class name from the class names of element - note if duplicate class names are present it will only remove the first    
 ```removeClass(element, className, delay)```
 
 -----------     
-Progressing between frames or functions
-###to fire a function after an interval, whilt making sure all concurrent tweens have set up    
+###Progressing between frames or functions   
+to fire a function after an interval, whilt making sure all concurrent tweens have set up    
 ```playFrame(frame, delay)```
 
