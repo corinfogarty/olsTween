@@ -22,11 +22,11 @@
 
  ========================================================================================================================================================*/
 
-var ready = false;
-
+var ready = [];
+//PLAY THE NEXT FRAME WITH DELAY AFTER ALL TWEENS 
 function playFrame(frame, del) {
     var go = setInterval(function() {
-        if (ready === true) {
+        if (ready.length === 0) {
             clearInterval(go);
             setTimeout(function() {
                 eval(frame());
@@ -77,30 +77,48 @@ var transformProperty = getSupportedPropertyName(transform);
 var transitionProperty = getSupportedPropertyName(transition);
 
 function $(name, duration, args) {
-    ready = false;
-
+    ready.unshift(false);
     setTimeout(function() {
         var s = name.style;
         var a = args;
         var easeType = a.ease;
-        s.position = 'absolute';
-        s.zoom = a.zoom;
-        s[transformProperty] = 'scale(' + a.scaleX + ' , ' + a.scaleY + ') rotate( ' + a.rotate + 'deg )';
+        var scaleAll = a.scale;
+        var xScale = a.scaleX || scaleAll || 1;
+        var yScale = a.scaleY || scaleAll || 1;
+        var rotation = a.rotate || 0;
+        var top = a.top;
+        var left = a.left;
 
-        s.transformOrigin = a.xOrigin + '% , ' + a.yOrigin + '%';
+        s.position = 'absolute';
+
+
+        s[transformProperty] = ' scale(' + xScale + ' , ' + yScale + ') rotate( ' + rotation + 'deg ) translate(' + top +'px'+ ', ' + left + 'px' + ')';
         s[transitionProperty] = 'all ' + duration + 's';
         s.transitionTimingFunction = 'cubic-bezier(' + easing[easeType] + ')' || a.ease;
         s.opacity = a.alpha;
 
         s.filter = 'blur(' + a.blur + 'px)';
-
-        s.top = a.top + 'px';
         s.left = a.left + 'px';
         s.bottom = a.bottom + 'px';
         s.right = a.right + 'px';
-        s.marginLeft = a.marginLeft + 'px';
+        //s.top = a.top + 'px';
+
+        s.width = a.width + "px";
+        s.height = a.height + "px";
+
         s.marginTop = a.marginTop + 'px';
-        ready = true;
+        s.marginRight = a.marginRight + 'px';
+        s.marginBottom = a.marginBottom + 'px';
+        s.marginLeft = a.marginLeft + 'px';
+
+        s.paddingTop = a.paddingTop + 'px';
+        s.paddingRight = a.paddingRight + 'px';
+        s.paddingBottom = a.paddingBottom + 'px';
+        s.paddingLeft = a.paddingLeft + 'px';
+
+        s.backgroundColor = '#' + a.backgroundColor;
+
+        ready.pop();
         doNext();
     }, args.delay * 1000);
     if (args.onStart) {
@@ -108,9 +126,8 @@ function $(name, duration, args) {
     }
 
     function doNext() {
-
         setTimeout(function() {
-            if (args.onComplete && ready === true) {
+            if (args.onComplete && ready.length === 0) {
                 eval(args.onComplete)();
             }
         }, args.delay + duration * 1000 || 75)
@@ -118,27 +135,29 @@ function $(name, duration, args) {
 
 }
 
+function doProp(argument, units) {
+        if (argument) {
+          return s.argument = a.argument + units;
+        }
+    }
+    // ADD A CLASS NAME TO THE EXISTING SET
 function addClass(element, className, delay) {
-    var d = delay || 0;
-    setTimeout(function() {
-        element.className = element.className + " " + className;
-    }, d);
-}
-
+        var d = delay || 0;
+        setTimeout(function() {
+            element.className = element.className + " " + className;
+        }, d);
+    }
+    // SWAP ALL CLASS NAMES FOR A NEW SET
 function swapClass(element, className, delay) {
-    var d = delay || 0;
-    setTimeout(function() {
-        element.className = className;
-    }, d);
-}
-
+        var d = delay || 0;
+        setTimeout(function() {
+            element.className = className;
+        }, d);
+    }
+    // REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
 function removeClass(element, removeClassName, delay) {
     var d = delay || 0;
     setTimeout(function() {
-        var list = element.className;
-        var listArr = list.split(" ");
-        listArr.splice(listArr.indexOf(removeClassName), 1);
-        var classNames = listArr.join(",");
-        element.className = classNames;
+        element.className = element.className.replace(removeClassName + " ", "");
     }, d);
 }
