@@ -67,7 +67,8 @@ var easing = {
     easeInCirc: '0.6, 0.04, 0.98, 0.335',
     easeOutCirc: '0.075, 0.82, 0.165, 1',
     easeInOutCirc: '0.785, 0.135, 0.15, 0.86',
-    easeOutBack: '0.175, 0.885, 0.32, 1.275'
+    easeOutBack: '0.175, 0.885, 0.32, 1.275',
+    linear: '0, 0, 1, 1'
 };
 
 var transform = ['transform', 'msTransform', 'webkitTransform', 'mozTransform', 'oTransform'];
@@ -83,21 +84,29 @@ function $(name, duration, args) {
         var a = args;
         var easeType = a.ease;
         var scaleAll = a.scale;
-        var xScale = a.scaleX || scaleAll || 1;
-        var yScale = a.scaleY || scaleAll || 1;
-        var rotation = a.rotate || 0;
-        var top = a.top || 0;
-        var left = a.left || 0;
+        var xScale = a.scaleX || scaleAll || null;
+        var yScale = a.scaleY || scaleAll || null;
+        var rotation = a.rotate || null;
+        var top = a.top || null;
+        var left = a.left || null;
 
-        s.position = a. position || 'absolute';
+        var defEase = 'linear';
+        if (a.ease!=-1 && easing.hasOwnProperty(a.ease)) {
+            defEase = 'cubic-bezier(' + easing[easeType] + ')';
+        }
+        s.position = a.position || 'absolute';
 
-
-        s[transformProperty] = ' scale(' + xScale + ' , ' + yScale + ') rotate( ' + rotation + 'deg ) translate(' + top +'px'+ ', ' + left + 'px' + ')';
+        s[transformProperty] = ' scale(' + xScale + ' , ' + yScale + ')';
+        s[transformProperty] = ' rotate( ' + rotation + 'deg )';
+        s[transformProperty] = ' translateY(' + a.y + 'px' + ')';
+        s[transformProperty] = ' translateX(' + a.x + 'px' + ')';
         s[transitionProperty] = 'all ' + duration + 's';
-        s.transitionTimingFunction = 'cubic-bezier(' + easing[easeType] + ')' || a.ease;
+        s.transitionTimingFunction = defEase;
         s.opacity = a.alpha;
 
         s.filter = 'blur(' + a.blur + 'px)';
+        s.top = a.top + 'px';
+        s.left = a.left + 'px';
         s.bottom = a.bottom + 'px';
         s.right = a.right + 'px';
 
@@ -133,30 +142,24 @@ function $(name, duration, args) {
 
 }
 
-box.className = "one"
-
-addClass(box, "hello fish water", 500)
-
-box.className = "one hello fish water"
-
-    // ADD A CLASS NAME TO THE EXISTING SET
+// ADD A CLASS NAME TO THE EXISTING SET
 function addClass(element, className, delay) {
-        var d = delay || 0;
-        setTimeout(function() {
-            element.className = element.className + " " + className;
-        }, d);
-    }
+    var d = delay || 0;
+    setTimeout(function() {
+        element.className = element.className + " " + className;
+    }, d);
+}
 
 
-    // SWAP ALL CLASS NAMES FOR A NEW SET
+// SWAP ALL CLASS NAMES FOR A NEW SET
 function replaceClass(element, className, delay) {
-        var d = delay || 0;
-        setTimeout(function() {
-            element.className = className;
-        }, d);
-    }
+    var d = delay || 0;
+    setTimeout(function() {
+        element.className = className;
+    }, d);
+}
 
-    // REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
+// REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
 function removeClass(element, removeClassName, delay) {
     var d = delay || 0;
     setTimeout(function() {
