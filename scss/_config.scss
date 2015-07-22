@@ -1,0 +1,35 @@
+
+/* ==============================================================================================
+Sass variables 
+============================================================================================== */ 
+
+//  Colours
+$white: #fff;
+$blue: #0c365a;
+
+//  Banner size
+$width: 300px;
+$height: 600px;
+
+
+
+/* ==============================================================================================
+
+  Fonts 
+  To add fonts use fontPrep https://github.com/briangonzalez/fontprep to create font
+
+  To create a custom set of fonts convert to hex and use subset of fontprep or other font 
+  conversion tool -  http://www.unit-conversion.info/texttools/hexadecimal/ 
+ 
+============================================================================================== */
+
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}

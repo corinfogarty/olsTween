@@ -1,11 +1,36 @@
-@import '_reset';
-body
-{
-
+// @import '_reset';
+@import '_config';
+@import '_mixins';
+body {
+    margin: 0;
+    padding: 0;
+    // padding: 10px;
+    color: $blue;
+    -webkit-font-smoothing: 1antialiased;
 }
 
-#box{
-    width:100px;
-    height: 100px;
-    background:green;
+#mainContent {
+    position: relative;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #fbf8f3;
 }
+
+#mainContent div,
+#mainContent img {
+    position: absolute;
+}
+
+#bg-exit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+}
+

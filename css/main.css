@@ -1,73 +1,49 @@
-/*
-*  html5 doctor css reset | http://html5doctor.com/html-5-reset-stylesheet
-*/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
+/* ==============================================================================================
+Sass variables 
+============================================================================================== */
+/* ==============================================================================================
+
+  Fonts 
+  To add fonts use fontPrep https://github.com/briangonzalez/fontprep to create font
+
+  To create a custom set of fonts convert to hex and use subset of fontprep or other font 
+  conversion tool -  http://www.unit-conversion.info/texttools/hexadecimal/ 
+ 
+============================================================================================== */
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
 
 body {
-  line-height: 1; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-nav ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: none; }
-
-a {
   margin: 0;
   padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
+  color: #0c365a;
+  -webkit-font-smoothing: 1antialiased; }
 
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none; }
+#mainContent {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 600px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fbf8f3; }
 
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold; }
+#mainContent div,
+#mainContent img {
+  position: absolute; }
 
-del {
-  text-decoration: line-through; }
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
-
-input, select {
-  vertical-align: middle; }
-
-#box {
-  width: 100px;
-  height: 100px;
-  background: green; }
+#bg-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 600px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0); }
 
 /*# sourceMappingURL=main.css.map */
