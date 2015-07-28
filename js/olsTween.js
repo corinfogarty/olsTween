@@ -1,4 +1,26 @@
 'use strict';
+/* ========================================================================================================================================================
+    To change style properties of an object use
+    olsTween(element, time, {
+        delay: 1,
+        height: "400px",
+        alpha: 0.5, // note ints must start with a 0
+        scaleX: 0.1,
+        scaleY: 0.1,
+        xOrigin: "50%",
+        yOrigin: "50%",
+        x: "200px",
+        y: "100px",
+        ease: "cubic-bezier(0.6, -0.28, 0.735, 0.045)"
+    })
+
+    To change class of an object use
+    addClass(elem ent, className, delay)
+
+    To replace class of an object use
+    changeClass(element, className, delay)
+
+ ========================================================================================================================================================*/
 
 var ready = [];
 //PLAY THE NEXT FRAME WITH DELAY AFTER ALL TWEENS 
@@ -43,6 +65,7 @@ var transform = ['transform', 'msTransform', 'webkitTransform', 'mozTransform', 
 var transition = ['transition', 'msTransition', 'webkitTransition', 'mozTransition', 'oTransition'];
 
 var transformProperty = getSupportedPropertyName(transform);
+
 var transitionProperty = getSupportedPropertyName(transition);
 
 var animateable = ["top", "left", "right", "bottom"];
@@ -112,26 +135,28 @@ function $(name, duration, args) {
         s.position = a.position || 'absolute';       
         
        if (typeof a.scale !== 'undefined') {
-         s.transform = transformation + ' scale('  + a.scale + ', '  + a.scale + ')';
+         transformation = transformation + ' scale('  + a.scale + ', '  + a.scale + ')';
         }        
-        if (typeof a.y !== 'undefined') {
-         s.transform = transformation + ' translateY('  + a.y + 'px)';
-        }
+       
         if (typeof a.x !== 'undefined') {
-         s.transform = transformation + ' translateX('  + a.x + 'px)';
+         transformation = transformation + ' translateX('  + a.x + 'px)';
+        }
+         if (typeof a.y !== 'undefined') {
+         transformation = transformation + ' translateY('  + a.y + 'px)';
         }
         if (typeof a.skewY !== 'undefined') {
-        s.transform = transformation + ' skewY('  + a.skewY + 'deg)';
+        transformation = transformation + ' skewY('  + a.skewY + 'deg)';
         }
         if (typeof a.skewX !== 'undefined') {
-         s.transform = transformation + ' skewX('  + a.skewX + 'deg)';
+         transformation = transformation + ' skewX('  + a.skewX + 'deg)';
         }
         if (typeof a.rotate !== 'undefined') {
-         s.transform = transformation + ' rotate('  + a.rotate + 'deg)';
+         transformation = transformation + ' rotate('  + a.rotate + 'deg)';
         }
+        s[transformProperty] = transformation;
         s[transitionProperty] = 'all ' + duration + 's';
         s.transitionTimingFunction = 'cubic-bezier(' + easing[easeType] + ')' || a.ease || 'linear';
-        s.opacity = a.opacity;
+        s.opacity = a.alpha;
 
         s.filter = 'blur(' + a.blur + 'px)';
         s.top = a.top + 'px';
