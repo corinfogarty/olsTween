@@ -127,35 +127,36 @@ function $(name, duration, args) {
 
         var transformation = "";
 
+        s.webkitBackfaceVisibility = s.backface || "hidden";
 
         var defEase = 'linear';
         if (a.ease != -1 && easing.hasOwnProperty(a.ease)) {
             defEase = 'cubic-bezier(' + easing[easeType] + ')';
         }
-        s.position = a.position || 'absolute';       
-        
-       if (typeof a.scale !== 'undefined') {
-         transformation = transformation + ' scale('  + a.scale + ', '  + a.scale + ')';
-        }        
-       
-        if (typeof a.x !== 'undefined') {
-         transformation = transformation + ' translateX('  + a.x + 'px)';
+        s.position = a.position || 'absolute';
+
+        if (typeof a.scale !== 'undefined') {
+            transformation = transformation + ' scale(' + a.scale + ', ' + a.scale + ')';
         }
-         if (typeof a.y !== 'undefined') {
-         transformation = transformation + ' translateY('  + a.y + 'px)';
+
+        if (typeof a.x !== 'undefined') {
+            transformation = transformation + ' translateX(' + a.x + 'px)';
+        }
+        if (typeof a.y !== 'undefined') {
+            transformation = transformation + ' translateY(' + a.y + 'px)';
         }
         if (typeof a.skewY !== 'undefined') {
-        transformation = transformation + ' skewY('  + a.skewY + 'deg)';
+            transformation = transformation + ' skewY(' + a.skewY + 'deg)';
         }
         if (typeof a.skewX !== 'undefined') {
-         transformation = transformation + ' skewX('  + a.skewX + 'deg)';
+            transformation = transformation + ' skewX(' + a.skewX + 'deg)';
         }
         if (typeof a.rotate !== 'undefined') {
-         transformation = transformation + ' rotate('  + a.rotate + 'deg)';
+            transformation = transformation + ' rotate(' + a.rotate + 'deg)';
         }
         s[transformProperty] = transformation;
         s[transitionProperty] = 'all ' + duration + 's';
-        s.transitionTimingFunction = 'cubic-bezier(' + easing[easeType] + ')' || a.ease || 'linear';
+        s.transitionTimingFunction = defEase;
         s.opacity = a.alpha;
 
         s.filter = 'blur(' + a.blur + 'px)';
@@ -189,12 +190,12 @@ function $(name, duration, args) {
     function doNext() {
         //console.log(args.delay + duration * 1000 || 75)
         setTimeout(function() {
-          //  console.log(args.onComplete)
+            //  console.log(args.onComplete)
 
             if (args.onComplete != undefined && ready.length === 0) {
                 eval(args.onComplete)();
             }
-        }, (args.delay ||0) + duration * 1000 || 75)
+        }, (args.delay || 0) + duration * 1000 || 75)
     }
 
 }
