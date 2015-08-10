@@ -1,26 +1,4 @@
 'use strict';
-/* ========================================================================================================================================================
-    To change style properties of an object use
-    olsTween(element, time, {
-        delay: 1,
-        height: "400px",
-        alpha: 0.5, // note ints must start with a 0
-        scaleX: 0.1,
-        scaleY: 0.1,
-        xOrigin: "50%",
-        yOrigin: "50%",
-        x: "200px",
-        y: "100px",
-        ease: "cubic-bezier(0.6, -0.28, 0.735, 0.045)"
-    })
-
-    To change class of an object use
-    addClass(elem ent, className, delay)
-
-    To replace class of an object use
-    changeClass(element, className, delay)
-
- ========================================================================================================================================================*/
 
 var ready = [];
 //PLAY THE NEXT FRAME WITH DELAY AFTER ALL TWEENS 
@@ -57,6 +35,7 @@ var easing = {
         easeOutCirc: '0.075, 0.82, 0.165, 1',
         easeInOutCirc: '0.785, 0.135, 0.15, 0.86',
         easeOutBack: '0.175, 0.885, 0.32, 1.275',
+        easeInBack: '0.6, -0.28, 0.735, 0.045',
         linear: '0, 0, 1, 1'
     },
     args;
@@ -98,15 +77,19 @@ function assign(obj, prop, value) {
 }
 
 function $(name, duration, args) {
+    var elem ;
+
+    typeof name === 'string' ? elem = document.querySelector(name) : elem = name;
+
     for (var i = 0; i < animateable.length; i++) {
         var propVal = getPropertyByName(args, animateable[i])
-        var existingVal = getPropertyByName(name.style, animateable[i]);
+        var existingVal = getPropertyByName(elem.style, animateable[i]);
 
 
         // console.log("existing value " + existingVal);
         if (propVal != undefined && existingVal === undefined) {
             if (existingVal === undefined || existingVal === 0) {
-                assign(name.style, animateable[i], 0);
+                assign(elem.style, animateable[i], 0);
 
             }
 
@@ -115,7 +98,7 @@ function $(name, duration, args) {
 
     ready.unshift(false);
     setTimeout(function() {
-        var s = name.style;
+        var s = elem.style;
         var a = args;
         var easeType = a.ease;
         var scaleAll = a.scale;
@@ -138,7 +121,6 @@ function $(name, duration, args) {
         if (typeof a.scale !== 'undefined') {
             transformation = transformation + ' scale(' + a.scale + ', ' + a.scale + ')';
         }
-
         if (typeof a.x !== 'undefined') {
             transformation = transformation + ' translateX(' + a.x + 'px)';
         }
@@ -186,6 +168,7 @@ function $(name, duration, args) {
     if (args.onStart) {
         eval(args.onStart)()
     }
+   
 
     function doNext() {
         //console.log(args.delay + duration * 1000 || 75)
@@ -197,7 +180,6 @@ function $(name, duration, args) {
             }
         }, (args.delay || 0) + duration * 1000 || 75)
     }
-
 }
 
 // ADD A CLASS NAME TO THE EXISTING SET
@@ -208,7 +190,6 @@ function addClass(element, className, delay) {
     }, d);
 }
 
-
 // SWAP ALL CLASS NAMES FOR A NEW SET
 function replaceClass(element, className, delay) {
     var d = delay || 0;
@@ -216,7 +197,6 @@ function replaceClass(element, className, delay) {
         element.className = className;
     }, d);
 }
-
 // REMOVE THE FIRST INSTANCE OF A CLASS NAME AND ITS TRAILING SPACE
 function removeClass(element, removeClassName, delay) {
     var d = delay || 0;

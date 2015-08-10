@@ -1,9 +1,5 @@
 window.onload = function() {
-    // if (Enabler.isInitialized()) {
-    //     init()
-    // } else {
-    //     Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
-    // }
+
     init()
 }
 
@@ -11,17 +7,17 @@ var elems = {};
 
 function init() {
   elems.exit = document.getElementById('bg-exit');
-  elems.box = document.getElementById('box');
-
-
-   play();
+  play();
+  setInterval(play, 2000);
 
 }
 
 function play() {
-  $(elems.box, 2,{x:100, y:100})
-  $(elems.box, 2,{delay:2, x:0})
-	        console.log(elems.box.translate.y);
+
+  $("#box", 1,{ y:245, rotate:45, ease:"easeInOutSine"})
+
+
+  $("#box", 1,{delay:1, y:50, rotate:0, ease:"easeInOutSine"})
 
 }
 

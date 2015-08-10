@@ -45,9 +45,13 @@ body {
   height: 250px;
   cursor: pointer; }
 
-#box {
+.box, #box {
   width: 20px;
   height: 20px;
-  background: black; }
+  background: black;
+  border-radius: 12px; }
+
+#box {
+  left: 100px; }
 
 /*# sourceMappingURL=main.css.map */
