@@ -6,7 +6,7 @@ Declare all objects as ids and assign them to a variable using getElementById
 remember to declare variables within an object to keep them out of the global scope
 
 -----------  
-## Styling and animation 
+# Styling and animation 
 
 To change style properties of an object use  
 ```$(element, time, {onStart:function, delay:n, style:attribute, onComplete:function})```
