@@ -124,7 +124,7 @@ number *does not requre px* - *default 0*
 ```$(element, 1, {paddingLeft:100)```  
 
 -----------  
-###backgroundColor:    
+###backgroundColor:     
 number *does not requre px* - *default 0*  
 ```$(element, 1, {backgroundColor:"#ffcc00")```  
 ```$(element, 1, {backgroundColor:"rgba(225,225,225,.5)")```  
@@ -140,7 +140,7 @@ number *does not requre px* - *default 0*
 
 
 -----------     
-##Changing class
+##Changing class     
 
 To add a class name to an element use in addition to its current class names    
 ```addClass(element, className, delay)```
