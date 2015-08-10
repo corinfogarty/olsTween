@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>olsTween by corinfogarty</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>olsTween</h1>
+          <h2>Lightweight js library for animation</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/corinfogarty/olsTween/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/corinfogarty/olsTween/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/corinfogarty/olsTween" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="olstween" class="anchor" href="#olstween" aria-hidden="true"><span class="octicon octicon-link"></span></a>olsTween</h1>
+
+<p>Lightweight (3kb minified) js library for banner animation using CSS.</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>Declare all objects as ids and assign them to a variable using getElementById
+remember to declare variables within an object to keep them out of the global scope</p>
+
+<hr>
+
+<h3>
+<a id="styling-and-animation" class="anchor" href="#styling-and-animation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling and animation</h3>
+
+<p>To change style properties of an object use<br>
+<code>$(element, time, {onStart:function, delay:n, style:attribute, onComplete:function})</code></p>
+
+<hr>
+
+<h3>
+<a id="duration" class="anchor" href="#duration" aria-hidden="true"><span class="octicon octicon-link"></span></a>duration:</h3>
+
+<p>number in seconds <em>default 0</em><br>
+<code>$(element, 1, {style:attribute)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="position" class="anchor" href="#position" aria-hidden="true"><span class="octicon octicon-link"></span></a>position:</h3>
+
+<p>absolute or relative - <em>default absolute</em><br>
+<code>$(element, 1, {position:absolute})</code></p>
+
+<hr>
+
+<h3>
+<a id="xscale" class="anchor" href="#xscale" aria-hidden="true"><span class="octicon octicon-link"></span></a>xScale:</h3>
+
+<p>number can include <em>px</em> or <em>%</em> - <em>default 1</em><br>
+<code>$(element, 1, {xScale:1})</code></p>
+
+<hr>
+
+<h3>
+<a id="yscale" class="anchor" href="#yscale" aria-hidden="true"><span class="octicon octicon-link"></span></a>yScale:</h3>
+
+<p>number can include px or %- <em>default 1</em><br>
+<code>$(element, 1, {yScale:1})</code></p>
+
+<hr>
+
+<h3>
+<a id="rotation" class="anchor" href="#rotation" aria-hidden="true"><span class="octicon octicon-link"></span></a>rotation:</h3>
+
+<p>number does not requre deg - <em>default 0</em><br>
+<code>$(element, 1, {rotation:90)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="ease" class="anchor" href="#ease" aria-hidden="true"><span class="octicon octicon-link"></span></a>ease:</h3>
+
+<p>see ##easings.net   for list -  or can be either named or a cubic bezier equation<br>
+<code>$(element, 1, {ease:"easeInSine")</code><br>
+<code>$(element, 1, {ease:cubic-bezier(0.77, 0, 0.175, 1))</code>  </p>
+
+<hr>
+
+<h3>
+<a id="alpha" class="anchor" href="#alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>alpha:</h3>
+
+<p>number - <em>default 1</em><br>
+<code>$(element, 1, {alpha:"0.5")</code></p>
+
+<hr>
+
+<h3>
+<a id="blur" class="anchor" href="#blur" aria-hidden="true"><span class="octicon octicon-link"></span></a>blur:</h3>
+
+<p>number <em>does not requre px</em><br>
+<code>$(element, 1, {blur:20)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="top" class="anchor" href="#top" aria-hidden="true"><span class="octicon octicon-link"></span></a>top:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {top:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="left" class="anchor" href="#left" aria-hidden="true"><span class="octicon octicon-link"></span></a>left:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {left:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="bottom" class="anchor" href="#bottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>bottom:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {bottom:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="right" class="anchor" href="#right" aria-hidden="true"><span class="octicon octicon-link"></span></a>right:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {right:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="width" class="anchor" href="#width" aria-hidden="true"><span class="octicon octicon-link"></span></a>width:</h3>
+
+<p>number <em>does not requre px</em><br>
+<code>$(element, 1, {width:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="height" class="anchor" href="#height" aria-hidden="true"><span class="octicon octicon-link"></span></a>height:</h3>
+
+<p>number <em>does not requre px</em><br>
+<code>$(element, 1, {height:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="margintop" class="anchor" href="#margintop" aria-hidden="true"><span class="octicon octicon-link"></span></a>marginTop:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {marginTop:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="marginright" class="anchor" href="#marginright" aria-hidden="true"><span class="octicon octicon-link"></span></a>marginRight:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {marginRight:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="marginbottom" class="anchor" href="#marginbottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>marginBottom:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {marginBottom:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="marginleft" class="anchor" href="#marginleft" aria-hidden="true"><span class="octicon octicon-link"></span></a>marginLeft:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {marginLeft:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="paddingtop" class="anchor" href="#paddingtop" aria-hidden="true"><span class="octicon octicon-link"></span></a>paddingTop:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {paddingTop:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="paddingright" class="anchor" href="#paddingright" aria-hidden="true"><span class="octicon octicon-link"></span></a>paddingRight:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {paddingRight:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="paddingbottom" class="anchor" href="#paddingbottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>paddingBottom:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {paddingBottom:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="paddingleft" class="anchor" href="#paddingleft" aria-hidden="true"><span class="octicon octicon-link"></span></a>paddingLeft:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {paddingLeft:100)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="backgroundcolor" class="anchor" href="#backgroundcolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>backgroundColor:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {backgroundColor:"#ffcc00")</code>  </p>
+
+<h2>
+<a id="element-1-backgroundcolorrgba2252252255--" class="anchor" href="#element-1-backgroundcolorrgba2252252255--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>$(element, 1, {backgroundColor:"rgba(225,225,225,.5)")</code>  </h2>
+
+<h3>
+<a id="onstart" class="anchor" href="#onstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>onStart:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {onStart:function)</code>  </p>
+
+<hr>
+
+<h3>
+<a id="oncomplete" class="anchor" href="#oncomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>onComplete:</h3>
+
+<p>number <em>does not requre px</em> - <em>default 0</em><br>
+<code>$(element, 1, {onComplete:function)</code>  </p>
+
+<hr>
+
+<h2>
+<a id="changing-class" class="anchor" href="#changing-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing class</h2>
+
+<p>To add a class name to an element use in addition to its current class names    </p>
+
+<h2>
+<a id="addclasselement-classname-delay" class="anchor" href="#addclasselement-classname-delay" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>addClass(element, className, delay)</code>
+</h2>
+
+<p>To replace all class names to an element removing all its current class names    </p>
+
+<h2>
+<a id="replaceclasselement-classname-delay" class="anchor" href="#replaceclasselement-classname-delay" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>replaceClass(element, className, delay)</code>
+</h2>
+
+<p>To remove a class name from the class names of element - note if duplicate class names are present it will only remove the first<br>
+<code>removeClass(element, className, delay)</code></p>
+
+<hr>
+
+<h3>
+<a id="progressing-between-frames-or-functions" class="anchor" href="#progressing-between-frames-or-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Progressing between frames or functions</h3>
+
+<p>to fire a function after an interval, whilt making sure all concurrent tweens have set up<br>
+<code>playFrame(frame, delay)</code></p>
+        </section>
+
+        <footer>
+          olsTween is maintained by <a href="https://github.com/corinfogarty">corinfogarty</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
